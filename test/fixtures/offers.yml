@@ -1,11 +1,16 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
-  content: MyText
-  price: 9.99
+  title: "Red Dodge Charger"
+  content: "Standard specs: Full-size spare tire w/aluminum alloy wheel, Back-up camera, Carpeted cargo area, Silver accent IP trim finisher -inc: silver shifter finisher, Back-up camera"
+  price: 78000.00
 
 two:
-  title: MyString
-  content: MyText
-  price: 9.99
+  title: "Blue Toyota Prius"
+  content: "Standard specs: P235/50R18 all-season tires, Intermittent rear wiper w/washer, Fixed long mast antenna, Optitron electroluminescent instrumentation, Full-time all-wheel drive"
+  price: 65000.00
+
+three:
+  title: "Yellow BMW X1"
+  content: "Standard specs: 3-point ELR/ALR rear seat belts at all positions, Bright pedals, Electric speed-sensitive variable-assist pwr steering, Multi-reflector halogen headlamps, Cargo-area tie down loops, Cargo compartment lamp, Tire pressure monitoring display, Glove box lamp"
+  price: 88500.00
