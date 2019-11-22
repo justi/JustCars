@@ -1,24 +1,38 @@
-# README
+# JustCars
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+JSON:API compliant API for managing Car offers.
 
-Things you may want to cover:
+Available resources:
+* offers
 
-* Ruby version
+See root document at http://localhost:3000 for a list of resources.
 
-* System dependencies
+Supports filtering by partial matching, for example:
 
-* Configuration
+<http://localhost:3000/offers?filter[title]=Red%20Toyota%20Corolla>
 
-* Database creation
+will show you a list of Red Toyota Corollas.
 
-* Database initialization
+# Requirements
 
-* How to run the test suite
+* Ruby 2.6
 
-* Services (job queues, cache servers, search engines, etc.)
+# Installation
 
-* Deployment instructions
+```bash
+# Install gems
+bundle install
 
-* ...
+# Setup database
+rails db:setup
+
+# Run server
+rails server
+```
+
+# Testing
+Tests are written in MiniTest.
+
+```bash
+rails test 
+```
