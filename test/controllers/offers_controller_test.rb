@@ -62,7 +62,29 @@ class OffersControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :created
     assert_equal JSONAPI::MEDIA_TYPE, response.content_type
+  end
 
+  test "shouldn't create offer for insufficient params" do
+    assert_no_difference('Offer.count') do
+      post offers_url,
+           params: {
+               data: {
+                   type: 'offers',
+                   attributes: {
+                       title: nil,
+                       content: @offer.content,
+                       price: @offer.price
+                   }
+               }
+           },
+           as: :json, headers: {
+              'Accept' => JSONAPI::MEDIA_TYPE,
+              'Content-Type' => JSONAPI::MEDIA_TYPE
+          }
+    end
+
+    assert_response :unprocessable_entity
+    assert_equal JSONAPI::MEDIA_TYPE, response.content_type
   end
 
   test "should show offer" do
