@@ -6,20 +6,34 @@ class OffersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get index" do
-    get offers_url, as: :json
+    get offers_url, as: :jsonapi
     assert_response :success
   end
 
   test "should create offer" do
     assert_difference('Offer.count') do
-      post offers_url, params: { offer: { content: @offer.content, price: @offer.price, title: @offer.title } }, as: :json
+      post offers_url,
+      params: {
+        data: {
+          type: 'offers',
+          attributes: {
+            title: @offer.title,
+            content: @offer.content,
+            price: @offer.price
+          }
+        }
+      },
+      as: :json, headers: {
+        'Accept' => JSONAPI::MEDIA_TYPE,
+        'Content-Type' => JSONAPI::MEDIA_TYPE
+      }
     end
 
-    assert_response 201
+    assert_response :created
   end
 
   test "should show offer" do
-    get offer_url(@offer), as: :json
+    get offer_url(@offer), as: :jsonapi
     assert_response :success
   end
 
